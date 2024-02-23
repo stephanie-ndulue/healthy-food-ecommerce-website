@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar CSS */
+.navbar {
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  padding: 10px 25px;
+}
+
+.nav-link{
+  font-weight: 400 !important;
+  color: #f13a01 !important;
+}
+.nav-link:hover{
+  color: #F5AB5F !important;
+}
+
+.active {
+  background-color: #f13a01;
+  border-radius: 10px;
+  color: #fff !important;
+}
+
+.navbar-brand{
+  font-weight: 500;
+  color: #f13a01 !important;
+  letter-spacing: 3px;
+}
+
+
+/* Footer CSS */
+.footer a{
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+}
+.footer a:hover{
+  color: #F4D5D5;
+}
+.footer{
+  background-color: #f13a01;
+}
+
+/* Contact CSS */
+.contact{
+  padding: 20px 50px;
+}
+
+/* About CSS */
+.about{
+  padding: 20px 50px;
+}
+
+
+/* Page not found CSS */
+.pnf{
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pnf-title{
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.pnf-heading{
+  font-weight: normal;
+}
+
+.pnf-btn {
+  text-decoration: none;
+  background-color: #f13a01;
+  border-radius: 10px;
+  color: #fff !important;
+  padding: 10px;
+}
+
+
+/* Register Page */
+
+.register{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
