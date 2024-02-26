@@ -26,7 +26,7 @@ const Register = () => {
     return (
         <Layout title={"Register - Food App"}>
             <div className='register'>
-                <h1>Register Page</h1>
+                <h1 className='form-title'>Registration</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
@@ -89,6 +89,7 @@ const Register = () => {
                         />
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
+                    <p class="form__text"><a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a> </p>
                 </form>
 
             </div>

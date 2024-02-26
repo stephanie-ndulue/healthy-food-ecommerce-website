@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
 /* Navbar CSS */
@@ -9,7 +10,8 @@
   font-size: 17px;
   line-height: 26px;
   text-transform: uppercase;
-  padding: 10px 25px;
+  padding: 20px 50px;
+  width: 100%;
 }
 
 .nav-link{
@@ -40,10 +42,218 @@
   padding: 10px;
 }
 .footer a:hover{
-  color: #F4D5D5;
+  color: rgba(247, 103, 86, 0.6);
+  transition: 0.3s ease-out;
 }
 .footer{
-  background-color: #f13a01;
+  background-color: #141414;
+}
+
+
+/* Home Page hero section*/
+.main {
+  background: radial-gradient(#fff, #1fa0a0);
+}
+
+.main__container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;;
+}
+
+
+
+.main__content h1 {
+  font-size: 4rem;
+  background-color: #ff8177;
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.main__content h2 {
+  margin-top: 10px;
+  background-color: #ff8177;
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.main__content p {
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.main__btn {
+  font-size: 1rem;
+  background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+  padding: 14px 32px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  margin-top: 2rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.35s;
+  outline: none;
+}
+
+.main__btn a {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-decoration: none;
+}
+
+.main__btn:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #4837ff;
+  transition: all 0.35s;
+  border-radius: 4px;
+}
+
+.main__btn:hover {
+  color: #fff;
+}
+
+.main__btn:hover:after {
+  width: 100%;
+}
+
+/* Home page Services Section */
+
+.services {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.services h1 {
+  background-color: #ff8177;
+  background-image: linear-gradient( to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  display: inline-block;
+  position: relative;
+}
+
+.services h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -20%;
+  transform: translate(-50%, -50%);
+  background-color: #b12a5b;
+  width: 50%;
+  height: .4rem;
+  z-index: 1;
+}
+
+.services__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.services__card {
+  margin: 1rem;
+  height: 525px;
+  width: 400px;
+  border-radius: 4px;
+  background-image: linear-gradient( to bottom, rgba(0, 0, 0, 0) 0%, rgba(17, 17, 17, 0.6) 100%), url('quinoa-salad.png');
+  background-size: cover;
+  position: relative;
+  color: #fff;
+}
+
+.services__card:before {
+  opacity: 0.2;
+}
+
+.services__card:nth-child(2) {
+  background-image: linear-gradient( to bottom, rgba(0, 0, 0, 0) 0%, rgba(17, 17, 17, 0.9) 100%), url('AIchatbot.jpg');
+}
+
+.services__card h2 {
+  position: absolute;
+  top: 350px;
+  left: 30px;
+}
+
+.services__card p {
+  position: absolute;
+  top: 400px;
+  left: 30px;
+}
+
+.services-button {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #f77062;
+  position: absolute;
+  top: 440px;
+  left: 30px;
+  font-size: 1rem;
+}
+
+.services-button:hover {
+  cursor: pointer;
+  background-color: #781c12;
+  transition: 0.2s ease-in;
+}
+.services-button a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.services__card:hover {
+  transform: scale(1.075);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 960px) {
+  .services {
+      height: 1600px;
+  }
+  .services h1 {
+      font-size: 2rem;
+      margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .services {
+      height: 1400px;
+  }
+  .services__card {
+      width: 300px;
+  }
 }
 
 /* Contact CSS */
@@ -91,4 +301,75 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 2rem;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background: #ffffff;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #f77062;
+  outline: none;
+  background: #f7e7e4;
+}
+.form-control:focus {
+  border-color: #f77062;
+  background: #ffffff;
+}
+
+.btn-primary {
+  width: 100%;
+    padding: 0.5rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 4px;
+    background: #f77062;
+}
+.btn-primary:hover {
+  background: rgba(247, 112, 98, 0.6);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+.form-title {
+  background-color: #ff8177;
+    background-image: linear-gradient( to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form__text {
+  text-align: center;
+}
+
+.form__link {
+  color: #252c6a;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form__link:hover {
+  color: #252c6a;
+  text-decoration: underline;
 }
