@@ -17,7 +17,7 @@ const router = express.Router();
 // Register || METHOD POST
 router.post('/register', registerController);
 
-//LOGIN || POST
+//LOGIN || METHOD POST
 router.post('/login', loginController);
 
 //test routes

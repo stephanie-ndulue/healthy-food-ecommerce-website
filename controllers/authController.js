@@ -54,6 +54,7 @@ export const registerController = async(req, res) => {
 
 // POST LOGIN
 export const loginController  = async(req, res) => {
+    console.log("login controller");
     try {
         const  {email, password} = req.body;
         // validation
