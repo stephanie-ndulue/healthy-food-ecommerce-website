@@ -1,0 +1,22 @@
+/* Register Page */
+
+
+
+.form-container {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+background-color: #fff;
+}
+
+.form-container form{
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+padding: 20px;
+background-color: #fff;
+}
+
+.form-container button{
+background-color: #F13A01;
+border: 1px solid #F13A01;
+}

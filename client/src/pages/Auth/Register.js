@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import Layout from '../../components/Layout/Layout.js';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom'; 
+import toast from 'react-hot-toast';
 
 
 const Register = () => {
@@ -11,11 +12,21 @@ const Register = () => {
     const [phone, setPhone] = useState("")
     const [address, setAddress] = useState("")
 
+    const navigate = useNavigate();
+
     // register form function
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`, {name, email, password, phone, address});
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`, {
+                name, email, password, phone, address
+            });
+            if (res && res.data.success) {
+                toast.success(res.data && res.data.message);
+                navigate("/login");
+            } else {
+                toast.error(res.data.message);
+            }
         } catch (error) {
             console.log(error);
             toast.error("Something wen wrong")
@@ -89,7 +100,7 @@ const Register = () => {
                         />
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <p class="form__text"><a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a> </p>
+                    <p class="form__text"><a class="form__link" href="./login" id="linkLogin">Already have an account? Sign in</a> </p>
                 </form>
 
             </div>
