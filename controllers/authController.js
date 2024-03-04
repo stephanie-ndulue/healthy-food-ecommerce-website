@@ -54,6 +54,7 @@ export const registerController = async(req, res) => {
 
 // POST LOGIN
 export const loginController  = async(req, res) => {
+    console.log("login controller");
     try {
         const  {email, password} = req.body;
         // validation
@@ -91,7 +92,8 @@ export const loginController  = async(req, res) => {
                 name: user.name,
                 email: user.email,
                 phone: user.phone,
-                address: user.address
+                address: user.address,
+                role: user.role
             },
             token
         });
