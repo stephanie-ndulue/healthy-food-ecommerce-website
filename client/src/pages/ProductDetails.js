@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout/Layout';
 
-const Products = () => {
+const ProductDetails = () => {
     return (
         <Layout title={"Products - Food App"}>
         <div className='row Products'>
@@ -17,4 +17,4 @@ const Products = () => {
 }
 
 
-export default Products
+export default ProductDetails

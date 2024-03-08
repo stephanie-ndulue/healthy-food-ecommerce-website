@@ -100,7 +100,7 @@ const Register = () => {
                         />
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <p class="form__text"><a class="form__link" href="./login" id="linkLogin">Already have an account? Sign in</a> </p>
+                    <p className="form__text"><a className="form__link" href="./login" id="linkLogin">Already have an account? Sign in</a> </p>
                 </form>
 
             </div>

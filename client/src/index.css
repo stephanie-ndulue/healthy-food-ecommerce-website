@@ -329,7 +329,7 @@
 }
 
 .btn-primary {
-  width: 100%;
+  /* width: 100%; */
     padding: 0.5rem 2rem;
     font-weight: bold;
     font-size: 1.1rem;
@@ -372,4 +372,9 @@
 .form__link:hover {
   color: #252c6a;
   text-decoration: underline;
+}
+
+.product-card{
+  text-decoration: none !important;
+  color: #000 !important;
 }

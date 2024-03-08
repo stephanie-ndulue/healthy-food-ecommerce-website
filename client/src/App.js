@@ -4,17 +4,19 @@ import Register from './pages/Auth/Register';
 import Login from './pages/Auth/Login';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Products from './pages/Products';
 import PageNotFound from './pages/PageNotFound';
 import Dashboard from './pages/user/Dashboard';
 import PrivateRoute from './components/Routes/Private';
 import AdminRoute from './components/Routes/AdminRoute';
 import AdminDashboard from './pages/Admin/AdminDashboard';
-import CreateCategory from './pages/Admin/create-category';
+import CreateCategory from './pages/Admin/CreateCategory';
 import CreateProduct from './pages/Admin/CreateProduct';
 import Users from './pages/Admin/Users';
 import Profile from './pages/user/Profile';
 import Orders from './pages/user/Orders';
+import ProductDetails from './pages/ProductDetails';
+import Products from './pages/Admin/Products';
+import UpdateProduct from './pages/Admin/UpdateProduct';
 
 
 function App() {
@@ -31,9 +33,11 @@ function App() {
           <Route path='admin' element={<AdminDashboard />} />
           <Route path='admin/create-category' element={<CreateCategory />} />
           <Route path='admin/create-product' element={<CreateProduct />} />
+          <Route path='admin/product/:slug' element={<UpdateProduct />} />
+          <Route path='admin/products' element={<Products />} />
           <Route path='admin/users' element={<Users />} />
         </Route>
-        <Route path='/products' element={<Products />} />
+        <Route path='/product-details' element={<ProductDetails />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/about' element={<About />} />
