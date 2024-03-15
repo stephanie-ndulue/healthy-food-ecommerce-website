@@ -73,8 +73,12 @@ const UpdateProduct = () => {
             productData.append("quantity", quantity);
             image && productData.append("image", image);
             productData.append("category", category);
-            console.log(productData);
-            const {data} = axios.put(`${process.env.REACT_APP_API}/api/v1/product/update-product/${id}`, productData);
+            // console.log(productData);
+            // const {data} = axios.put(`${process.env.REACT_APP_API}/api/v1/product/update-product/${id}`, productData);
+            const { data } = axios.put(
+                `${process.env.REACT_APP_API}/api/v1/product/update-product/${id}`,
+                productData
+              );
             if(data?.success){
                 toast.error(data?.message);
             } else {
@@ -84,6 +88,22 @@ const UpdateProduct = () => {
         } catch (error) {
             console.log(error);
             toast.error('Something went wrong');
+        }
+    };
+
+    //delete a product
+    const handleDelete = async () => {
+        try {
+            let answer = window.prompt("Are You Sure want to delete this product ? ");
+            if (!answer) return;
+            const { data } = await axios.delete(
+                `${process.env.REACT_APP_API}/api/v1/product/delete-product/${id}`
+            );
+            toast.success("Product Deleted Succfully");
+            navigate("/dashboard/admin/products");
+        } catch (error) {
+            console.log(error);
+            toast.error("Something went wrong");
         }
     };
 
@@ -103,7 +123,8 @@ const UpdateProduct = () => {
                                 placeholder="Select a Category"
                                 size="large"
                                 showSearch
-                                className="form-select mb-3" onChange={(value) => {setCategory(value)}}
+                                className="form-select mb-3" 
+                                onChange={(value) => {setCategory(value)}}
                                 value={category}
                             >
                                 {categories?.map((c) => (
@@ -195,6 +216,11 @@ const UpdateProduct = () => {
                             <div className="mb-3">
                                 <button className="btn btn-primary" onClick={handleUpdate}>
                                     Update Product
+                                </button>
+                            </div>
+                            <div className="mb-3">
+                                <button className="btn btn-danger" onClick={handleDelete}>
+                                DELETE PRODUCT
                                 </button>
                             </div>
                         </div>
