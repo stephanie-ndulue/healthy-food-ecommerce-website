@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
@@ -183,7 +185,8 @@ const HomePage = () => {
                       <p className="card-text">$ {p.price}</p>
                       <button
                           className="btn btn-primary"
-                          onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
+                          onClick={() => navigate(`/product/${p.slug}`)}>More Details
+                      </button>
                       <button
                           className="btn btn-secondary"
                           onClick={() => {
@@ -197,22 +200,22 @@ const HomePage = () => {
                   </div>
               ))}
             </div>
-          </div>
-          <div className="m-2 p-3">
-            {products && products.length < total && (
-                <button
-                    className="btn loadmore"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setPage(page + 1);
-                    }}
-                >
-                  {loading ? (
-                      "Loading ..."
-                  ) : ( "Loadmore"
-                  )}
-                </button>
-            )}
+            <div className="m-2 p-3 text-center">
+              {products && products.length < total && (
+                  <button
+                      className="btn loadmore btn-info"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setPage(page + 1);
+                      }}
+                  >
+                    {loading ? (
+                        "Loading ..."
+                    ) : ("Loadmore"
+                    )}
+                  </button>
+              )}
+            </div>
           </div>
         </div>
       </div>

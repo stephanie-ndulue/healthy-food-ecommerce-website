@@ -5,7 +5,10 @@ import { useAuth } from "../context/auth";
 import { useNavigate } from "react-router-dom";
 import { AiFillWarning } from "react-icons/ai";
 import axios from "axios";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
+import DropIn from "braintree-web-drop-in-react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CartPage = () => {
     const [auth, setAuth] = useAuth();
@@ -40,6 +43,40 @@ const CartPage = () => {
             localStorage.setItem("cart", JSON.stringify(myCart));
         } catch (error) {
             console.log(error);
+        }
+    };
+
+
+    //get payment gateway token
+    const getToken = async () => {
+        try {
+            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/braintree/token`);
+            setClientToken(data?.clientToken);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    useEffect(() => {
+        getToken();
+    }, [auth?.token]);
+
+    //handle payments
+    const handlePayment = async () => {
+        try {
+            setLoading(true);
+            const { nonce } = await instance.requestPaymentMethod();
+            const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/braintree/payment`, {
+                nonce,
+                cart,
+            });
+            setLoading(false);
+            localStorage.removeItem("cart");
+            setCart([]);
+            navigate("/dashboard/user/orders");
+            toast.success("Payment Completed Successfully ");
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
         }
     };
 
@@ -85,7 +122,10 @@ const CartPage = () => {
                                     <div className="col-md-4 cart-remove-btn">
                                         <button
                                             className="btn btn-danger"
-                                            onClick={() => removeCartItem(p._id)}
+                                            onClick={() => {
+                                                removeCartItem(p._id);
+                                                toast.success("Item removed from cart");
+                                            }}
                                         >
                                             Remove
                                         </button>
@@ -96,7 +136,7 @@ const CartPage = () => {
                         <div className="col-md-5 cart-summary ">
                             <h2>Cart Summary</h2>
                             <p>Total | Checkout | Payment</p>
-                            <hr />
+                            <hr/>
                             <h4>Total : {totalPrice()} </h4>
                             {auth?.user?.address ? (
                                 <>
@@ -134,6 +174,31 @@ const CartPage = () => {
                                     )}
                                 </div>
                             )}
+                            <div className="mt-2">
+                                {!clientToken || !auth?.token || !cart?.length ? (
+                                    ""
+                                ) : (
+                                    <>
+                                        <DropIn
+                                            options={{
+                                                authorization: clientToken,
+                                                paypal: {
+                                                    flow: "vault",
+                                                },
+                                            }}
+                                            onInstance={(instance) => setInstance(instance)}
+                                        />
+
+                                        <button
+                                            className="btn btn-primary"
+                                            onClick={handlePayment}
+                                            disabled={loading || !instance || !auth?.user?.address}
+                                        >
+                                            {loading ? "Processing ...." : "Make Payment"}
+                                        </button>
+                                    </>
+                                )}
+                            </div>
 
                         </div>
                     </div>
