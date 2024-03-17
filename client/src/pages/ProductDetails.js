@@ -2,11 +2,15 @@ import React, {useState, useEffect} from 'react';
 import Layout from '../components/Layout/Layout';
 import axios from 'axios';
 import {useNavigate, useParams} from "react-router-dom";
+import { useCart } from "../context/cart";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDetails = () => {
     const params = useParams();
     const navigate = useNavigate();
     const [product, setProduct] = useState({});
+    const [cart, setCart] = useCart();
 
     // initial details
     useEffect(() => {
@@ -46,7 +50,15 @@ const ProductDetails = () => {
                         })}
                     </h6>
                     <h6>Category : {product?.category?.name}</h6>
-                    <button className="btn btn-secondary ms-1">ADD TO CART</button>
+                    <button
+                        className="btn btn-secondary"
+                        onClick={() => {
+                            setCart([...cart, product]);
+                            toast.success("Item added to cart");
+                        }}
+                    >
+                        Add to Cart
+                    </button>
                 </div>
             </div>
         </Layout>
