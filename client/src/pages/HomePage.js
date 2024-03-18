@@ -140,7 +140,7 @@ const HomePage = () => {
             <div className="services__card">
               <h2>AI Personalized Recommendations Chat</h2>
               
-                <a href="/register"><button className="services-button">Chat</button></a>
+                <a href="/chatbot"><button className="services-button">Chat</button></a>
               
             </div>
           </div>

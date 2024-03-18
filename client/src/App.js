@@ -22,6 +22,7 @@ import Categories from "./pages/Categories";
 import CategoryProduct from "./pages/CategoryProduct";
 import CartPage from "./pages/CartPage";
 import AdminOrders from "./pages/Admin/AdminOrders";
+import ChatBot from "./pages/ChatBot";
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path="/chatbot" element={<ChatBot />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </>
