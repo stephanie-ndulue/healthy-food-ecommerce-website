@@ -357,3 +357,29 @@ export const brainTreePaymentController = async (req, res) => {
         console.log(error);
     }
 };
+
+// get lowest inventory product
+export const getLowInventoryProductController = async (req, res) => {
+    try {
+        const products = await productModel
+            .find({})
+            .populate('category')
+            .select("-image")
+            .limit(15)
+            .sort({quantity: 1})
+            .limit(10);
+        res.status(200).send({
+            success: true,
+            totalCount: products.length,
+            message: "All Products",
+            products
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            error,
+            message: "Error getting all Products"
+        })
+    }
+}

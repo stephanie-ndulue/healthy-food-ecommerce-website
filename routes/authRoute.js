@@ -6,7 +6,7 @@ import {
     updateProfileController,
     getOrdersController,
     getAllOrdersController,
-    orderStatusController,
+    orderStatusController, getAllUsersController, getLatestOrdersController,
 } from "../controllers/authController.js";
 import { 
     isAdmin, 
@@ -46,7 +46,13 @@ router.get("/orders", requireSignIn, getOrdersController);
 //all orders
 router.get("/all-orders", requireSignIn, isAdmin, getAllOrdersController);
 
+//latest orders
+router.get("/latest-orders", requireSignIn, isAdmin, getLatestOrdersController);
+
 // order status update
 router.put("/order-status/:orderId", requireSignIn, isAdmin, orderStatusController);
+
+//all orders
+router.get("/all-users", requireSignIn, isAdmin, getAllUsersController);
 
 export default router;

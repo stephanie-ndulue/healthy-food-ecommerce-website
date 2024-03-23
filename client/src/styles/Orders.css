@@ -1,0 +1,9 @@
+.card {
+    background-color: rgba(128, 128, 128, 0.097);
+    width: 100%;
+}
+
+.card-img-top {
+    width: 100px !important;
+    height: 100px !important;
+}

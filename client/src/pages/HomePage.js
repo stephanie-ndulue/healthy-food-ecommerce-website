@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
+import '../styles/HomePage.css';
 
 const HomePage = () => {
   const  navigate = useNavigate();
@@ -174,28 +175,35 @@ const HomePage = () => {
           </div>
           <div className="col-md-10">
             <h2 className="text-center">All Products</h2>
-            <div className="d-flex flex-wrap">
+            <div className="d-flex flex-wrap home-products">
               {products?.map(p => (
                   <div className="card m-2" style={{width: '18rem'}} key={p._id}>
                     <img src={`${process.env.REACT_APP_API}/api/v1/product/product-image/${p._id}`}
-                         className="card-img-top" alt={p.name}/>
+                         className="card-img-top m-3" alt={p.name}/>
                     <div className="card-body">
                       <h5 className="card-title">{p.name}</h5>
+                      <h5 className="card-title card-price">
+                        {p.price.toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "CAD",
+                        })}
+                      </h5>
                       <p className="card-text">{p.description.substring(0, 30)}</p>
-                      <p className="card-text">$ {p.price}</p>
-                      <button
-                          className="btn btn-primary"
-                          onClick={() => navigate(`/product/${p.slug}`)}>More Details
-                      </button>
-                      <button
-                          className="btn btn-secondary"
-                          onClick={() => {
-                            setCart([...cart, p]);
-                            toast.success("Item added to cart");
-                          }}
-                      >
-                        Add to Cart
-                      </button>
+                      <div className="card-name-price">
+                        <button
+                            className="btn btn-info ms-1"
+                            onClick={() => navigate(`/product/${p.slug}`)}>More Details
+                        </button>
+                        <button
+                            className="btn btn-secondary"
+                            onClick={() => {
+                              setCart([...cart, p]);
+                              toast.success("Item added to cart");
+                            }}
+                        >
+                          Add to Cart
+                        </button>
+                      </div>
                     </div>
                   </div>
               ))}
@@ -211,7 +219,7 @@ const HomePage = () => {
                   >
                     {loading ? (
                         "Loading ..."
-                    ) : ("Loadmore"
+                    ) : ("Load more"
                     )}
                   </button>
               )}

@@ -6,6 +6,12 @@ const AdminMenu = () => {
         <>
             <div className="text-center">
                 <div className="list-group">
+                    <NavLink
+                        to="/dashboard/admin/"
+                        className="list-group-item list-group-item-action"
+                    >
+                        Dashboard
+                    </NavLink>
                     <NavLink 
                         to="/dashboard/admin/create-category" 
                         className="list-group-item list-group-item-action"
