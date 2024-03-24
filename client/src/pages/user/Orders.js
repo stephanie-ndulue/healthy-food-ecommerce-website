@@ -6,6 +6,7 @@ import { useAuth } from "../../context/auth";
 import moment from "moment";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../../styles/Orders.css';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);

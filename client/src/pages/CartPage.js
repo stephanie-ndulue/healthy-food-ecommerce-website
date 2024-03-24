@@ -102,10 +102,10 @@ const CartPage = () => {
                 </div>
                 <div className="container ">
                     <div className="row ">
-                        <div className="col-md-7  p-0 m-0">
+                        <div className="col-md-6  p-0 m-0">
                             {cart?.map((p) => (
-                                <div className="row card flex-row" key={p._id}>
-                                    <div className="col-md-4">
+                                <div className="row card flex-row m-2" key={p._id}>
+                                    <div className="col-md-4 p-2">
                                         <img
                                             src={`${process.env.REACT_APP_API}/api/v1/product/product-image/${p._id}`}
                                             className="card-img-top"
@@ -121,7 +121,7 @@ const CartPage = () => {
                                     </div>
                                     <div className="col-md-4 cart-remove-btn">
                                         <button
-                                            className="btn btn-danger"
+                                            className="btn btn-danger m-3"
                                             onClick={() => {
                                                 removeCartItem(p._id);
                                                 toast.success("Item removed from cart");
@@ -133,7 +133,7 @@ const CartPage = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="col-md-5 cart-summary ">
+                        <div className="col-md-5 cart-summary m-4">
                             <h2>Cart Summary</h2>
                             <p>Total | Checkout | Payment</p>
                             <hr/>

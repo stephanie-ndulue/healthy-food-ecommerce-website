@@ -13,7 +13,7 @@ import {
     searchProductController,
     productCategoryController,
     braintreeTokenController,
-    brainTreePaymentController
+    brainTreePaymentController, getLowInventoryProductController
 } from "../controllers/productController.js";
 import formidable from 'express-formidable';
 
@@ -52,6 +52,9 @@ router.get('/search/:keyword', searchProductController);
 
 // category wise product
 router.get('/product-category/:slug', productCategoryController);
+
+// get all product
+router.get('/lowest-inventory-product', getLowInventoryProductController);
 
 //payments routes
 //token
