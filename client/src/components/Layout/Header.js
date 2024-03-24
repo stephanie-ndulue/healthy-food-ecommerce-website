@@ -34,7 +34,7 @@ const Header = () => {
                     <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
                         <SearchInput/>
                         <li className="nav-item">
-                            <NavLink to="/" className="nav-link">Home </NavLink>
+                            <Link to="/" className="nav-link">Home </Link>
                         </li>
                         <li className="nav-item dropdown">
                             <Link

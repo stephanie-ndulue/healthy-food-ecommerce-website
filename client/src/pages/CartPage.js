@@ -117,7 +117,7 @@ const CartPage = () => {
                                     <div className="col-md-4">
                                         <p>{p.name}</p>
                                         <p>{p.description.substring(0, 30)}</p>
-                                        <p>Price : {p.price}</p>
+                                        <p>Price : ${p.price}</p>
                                     </div>
                                     <div className="col-md-4 cart-remove-btn">
                                         <button
@@ -141,13 +141,16 @@ const CartPage = () => {
                             {auth?.user?.address ? (
                                 <>
                                     <div className="mb-3">
-                                        <h4>Current Address</h4>
-                                        <h5>{auth?.user?.address}</h5>
+                                        <h4>Your current Information:</h4>
+                                        <h5>Name: {auth?.user?.name}</h5>
+                                        <h5>Email: {auth?.user?.email}</h5>
+                                        <h5>Phone Number: {auth?.user?.phone}</h5>
+                                        <h5>Current Address: {auth?.user?.address}</h5>
                                         <button
                                             className="btn btn-outline-warning"
                                             onClick={() => navigate("/dashboard/user/profile")}
                                         >
-                                            Update Address
+                                            Update Your Information
                                         </button>
                                     </div>
                                 </>
