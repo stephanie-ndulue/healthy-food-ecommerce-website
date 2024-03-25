@@ -157,7 +157,7 @@ const HomePage = () => {
                   </Checkbox>
               ))}
             </div>
-            <h4 className="text-center mt-4">Filter by Prices</h4>
+            {/* <h4 className="text-center mt-4">Filter by Prices</h4>
             <div className="d-flex flex-column">
               <Radio.Group onChange={(e) => setRadio(e.target.value)}>
                 {Prices?.map((p) => (
@@ -166,7 +166,7 @@ const HomePage = () => {
                     </div>
                 ))}
               </Radio.Group>
-            </div>
+            </div> */}
             <div className="d-flex flex-column mt-4">
               <button className="btn btn-danger" onClick={() => window.location.reload()}>
                 RESET FILTERS
@@ -175,7 +175,7 @@ const HomePage = () => {
           </div>
           <div className="col-md-10">
 
-            <h2 className="text-center">All Products</h2>
+            <h2 className="text-center" id="products">All Products</h2>
             <div className="d-flex flex-wrap home-products">
 
               {products?.map(p => (
@@ -193,11 +193,11 @@ const HomePage = () => {
                       <p className="card-text">{p.description.substring(0, 30)}</p>
                       <div className="card-name-price">
                         <button
-                            className="btn btn-info ms-1"
+                            className="btn btn-danger ms-1"
                             onClick={() => navigate(`/product/${p.slug}`)}>More Details
                         </button>
                         <button
-                            className="btn btn-secondary"
+                            className="btn btn-success"
                             onClick={() => {
                               setCart([...cart, p]);
                               toast.success("Item added to cart");
@@ -213,7 +213,7 @@ const HomePage = () => {
             <div className="m-2 p-3 text-center">
               {products && products.length < total && (
                   <button
-                      className="btn loadmore btn-info"
+                      className="btn loadmore btn-light"
                       onClick={(e) => {
                         e.preventDefault();
                         setPage(page + 1);

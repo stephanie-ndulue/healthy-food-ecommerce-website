@@ -45,6 +45,7 @@ const CategoryProduct = () => {
                                     <div className="card-body">
                                         <div className="card-name-price">
                                             <h5 className="card-title">{p.name}</h5>
+                                            
                                             <h5 className="card-title card-price">
                                                 {p.price.toLocaleString("en-US", {
                                                     style: "currency",
@@ -57,13 +58,13 @@ const CategoryProduct = () => {
                                         </p>
                                         <div className="card-name-price">
                                             <button
-                                                className="btn btn-info ms-1"
+                                                className="btn btn-danger ms-1"
                                                 onClick={() => navigate(`/product/${p.slug}`)}
                                             >
                                                 More Details
                                             </button>
                                             <button
-                                                className="btn btn-secondary"
+                                                className="btn btn-success"
                                                 onClick={() => {
                                                     setCart([...cart, p]);
                                                     toast.success("Item added to cart");

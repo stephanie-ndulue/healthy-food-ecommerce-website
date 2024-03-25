@@ -12,11 +12,11 @@ const Search = () => {
     const navigate = useNavigate();
     return (
         <Layout title={'Search results'}>
-            <div className="container">
+            <div className="container" style={{ minHeight: "85vh"}}>
                 <div className="text-center">
 
                     <h1>Search Results</h1>
-                    <h6>{values?.results.length < 1 ? 'No Products Found' : `Found ${values?.results.length} Products`}</h6>
+                    <h4>{values?.results.length < 1 ? 'Sorry! The product you are looking for is currently unavailable. Please try another product search.' : `Found ${values?.results.length} Products`}</h4>
                     <div className="d-flex flex-wrap mt-4 search-products">
 
                         {values?.results.map((p) => (
@@ -28,18 +28,18 @@ const Search = () => {
                                 />
                                 <div className="card-body">
                                     <h5 className="card-title">{p.name}</h5>
+                                    <p className="card-text card-price" style={{color: '#f77062'}}> CA${p.price}</p>
                                     <p className="card-text">
                                         {p.description.substring(0, 30)}...
                                     </p>
-                                    <p className="card-text"> $ {p.price}</p>
                                     <button
-                                        className="btn btn-info ms-1"
+                                        className="btn btn-danger ms-1"
                                         onClick={() => navigate(`/product/${p.slug}`)}
                                     >
                                         More Details
                                     </button>
                                     <button
-                                        className="btn btn-secondary"
+                                        className="btn btn-success"
                                         onClick={() => {
                                             setCart([...cart, p]);
                                             toast.success("Item added to cart");

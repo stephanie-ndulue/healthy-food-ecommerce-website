@@ -147,7 +147,7 @@ const CartPage = () => {
                                         <h5>Phone Number: {auth?.user?.phone}</h5>
                                         <h5>Current Address: {auth?.user?.address}</h5>
                                         <button
-                                            className="btn btn-outline-warning"
+                                            className="btn btn-outline-success"
                                             onClick={() => navigate("/dashboard/user/profile")}
                                         >
                                             Update Your Information
