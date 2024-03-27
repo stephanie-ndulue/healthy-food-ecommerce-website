@@ -2,3 +2,21 @@
     height: 16rem !important;
     width: 16rem !important;
 }
+
+.filters h4 {
+    margin-top: 100px;
+    color: gray !important;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.337);
+}
+
+.ant-checkbox-wrapper:first-of-type {
+    margin-left: 8px;
+}
+
+.ant-checkbox-wrapper {
+    margin: 2px;
+}
+.ant-radio-wrapper {
+    margin-bottom: 5px !important;
+    margin-left: 10px;
+}
