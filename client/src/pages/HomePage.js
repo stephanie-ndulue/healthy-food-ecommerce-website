@@ -136,7 +136,7 @@ const HomePage = () => {
           <div className="services__container">
             <div className="services__card">
               <h2>Browse through Multicultural dishes</h2>
-              <a href="/products"><button className="services-button">Browse</button></a>
+              <a href="#products"><button className="services-button">Browse</button></a>
             </div>
             <div className="services__card">
               <h2>AI Personalized Recommendations Chat</h2>
@@ -174,8 +174,10 @@ const HomePage = () => {
             </div>
           </div>
           <div className="col-md-10">
+
             <h2 className="text-center">All Products</h2>
             <div className="d-flex flex-wrap home-products">
+
               {products?.map(p => (
                   <div className="card m-2" style={{width: '18rem'}} key={p._id}>
                     <img src={`${process.env.REACT_APP_API}/api/v1/product/product-image/${p._id}`}
